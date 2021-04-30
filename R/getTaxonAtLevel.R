@@ -1,4 +1,4 @@
-#' Get the Taxon Name at the Soil Taxonomic Order, Suborder, Great Group or Subgroup Level
+#' Get the taxon name the Soil Order, Suborder, Great Group or Subgroup level
 #'
 #' @param x A character vector containing subgroup-level taxonomic names
 #' @param level one of `c("order","suborder","greatgroup","subgroup")`
@@ -31,7 +31,8 @@ getTaxonAtLevel <- function(x, level = c("order","suborder","greatgroup","subgro
   
   levelid <- level.lut[level]
   ncharlevel <- levelid
-  if(levelid == 4)
+  
+  if (levelid == 4)
     ncharlevel <- 4:5
   
   needle <- decompose_taxon_code(taxon_to_taxon_code(x))
@@ -39,10 +40,10 @@ getTaxonAtLevel <- function(x, level = c("order","suborder","greatgroup","subgro
     if (length(y) >= levelid && nchar(y[[levelid]]) %in% ncharlevel) {
       return(tolower(taxon_code_to_taxon(y[[levelid]])))
     }
-    return(NA)
+    return(NA_character_)
   })
-  names(res) <- names(needle)
+  names(res) <- x
   if(length(res) > 0)
     return(res)
-  return(NA)
+  return(NA_character_)
 }

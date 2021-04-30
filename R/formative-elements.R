@@ -1,4 +1,4 @@
-#' Identify formative elements in Soil Taxonomic Order, Suborder, Great Group or Subgroup Level
+#' Identify formative elements in taxon names at Soil Order, Suborder, Great Group or Subgroup level
 #'
 #' @param x A character vector containing subgroup-level taxonomic names
 #' @param level one of `c("order","suborder","greatgroup","subgroup")`
@@ -24,7 +24,7 @@
 #' @importFrom stringr str_locate_all
 FormativeElements <- function(x, level = c("order","suborder","greatgroup","subgroup")) {
   
-  level = match.arg(level, choices = c("order","suborder","greatgroup","subgroup"))
+  level <- match.arg(level, choices = c("order","suborder","greatgroup","subgroup"))
   
   # for R CMD check
   ST_formative_elements <- NULL
@@ -37,17 +37,31 @@ FormativeElements <- function(x, level = c("order","suborder","greatgroup","subg
   haystack <- lut$element
   pattern <- haystack
   
+  # split into tokens using spaces
+  tok <- strsplit(x, " ", fixed = TRUE)
+  
   if (level == "order") {
-    # soil order is always encoded at the end
+    # soil order is always encoded at the end of last word
     pattern <- paste0(haystack, '$')
-    tok <- strsplit(x, " ", fixed=TRUE)  
+
   } else if (level == "greatgroup") {
-    # soil order is always encoded at the end
-    pattern <- paste0("\\b",haystack)
-    tok <- strsplit(x, " ", fixed=TRUE)
+    # soil great group is preceded by a word boundary
+    pattern <- paste0("\\b", haystack)
+    
   } else {
-     # split into tokens
-    tok <- strsplit(getTaxonAtLevel(x, level = level), " ", fixed=TRUE)
+    
+    if (level == "suborder") {
+      # Suborder is always followed by a non-"s" character (an order element)
+      #   - this covers the use of *ist* in the suborders of Gelisols
+      #  Great Groups of Histels have formative elements that overlap Suborders of Histosols
+      pattern <- paste0(haystack, '[^s]')  
+    }
+    
+    # get the taxonomic name at the specified level (simplifies search/matching)
+    res <- getTaxonAtLevel(x, level = level)
+    
+    # split into tokens using result
+    tok <- strsplit(res, " ", fixed = TRUE)
   }
   
   tok.len <- sapply(tok, length)
@@ -68,7 +82,19 @@ FormativeElements <- function(x, level = c("order","suborder","greatgroup","subg
   # find the last occurrence of formative elements
   m <- sapply(seq_along(pattern), FUN = function(i) haystack[i][grep(pattern[i], needle, ignore.case = TRUE)[1]])
   m <- m[which(!is.na(m))]
+  
+  # remove any that do not exist in input x; e.g. folistels are histels, but only contain "ist" not "hist"
+  idx <- sapply(m, function(mm) length(grep(mm, x)) > 0)
+  if (length(idx) == 0)
+    return(list(defs = data.frame(element = "", derivation = "",
+                                  connotation = "", simplified = NA, link = NA), 
+                char.index = 0))
+  m <- m[idx]
+  
+  # order by number of characters
   mord <- m[order(nchar(m))]
+  
+  # calculate number of occurences in matching formative elements; only keep those that aren't repeated
   test <- sapply(mord, function(mm) length(grep(mm, m, ignore.case = TRUE)))
   if(any(test > 1)) {
     m <- m[m %in% mord[test == 1]]
@@ -92,7 +118,7 @@ FormativeElements <- function(x, level = c("order","suborder","greatgroup","subg
     cidx <- suppressWarnings(max(loc.start[, 1], na.rm = TRUE))
     
   } else {
-    cidx <- loc.start[, 1]
+    cidx <- as.numeric(loc.start[, 1])
   }
   
   # attempt sorting multiple matches

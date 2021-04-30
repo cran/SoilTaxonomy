@@ -1,4 +1,4 @@
-#' Decompose Soil Taxonomy Taxon Letter Codes to Parent Codes
+#' Decompose taxon letter codes
 #' 
 #' @description Find all codes that logically comprise the specified codes. For instance, code "ABC" ("Anhyturbels") returns "A" ("Gelisols"), "AB" ("Turbels"), "ABC" ("Anhyturbels"). Use in conjunction with a lookup table that maps Order, Suborder, Great Group and Subgroup taxa to their codes (see \code{\link{taxon_code_to_taxon}} and \code{\link{taxon_to_taxon_code}}). 
 #' 
@@ -47,7 +47,7 @@ decompose_taxon_code <- function(codes) {
   return(fin)
 }
 
-#' Identify Taxon Codes of Logically Preceding Taxa
+#' Get taxon codes of preceding taxa
 #'
 #' @description Find all codes that logically precede the specified codes. For instance, code "ABC" ("Anhyturbels") returns "AA" ("Histels") "ABA" ("Histoturbels") and "ABB" ("Aquiturbels"). Use in conjunction with a lookup table that maps Order, Suborder, Great Group and Subgroup taxa to their codes (see \code{\link{taxon_code_to_taxon}} and \code{\link{taxon_to_taxon_code}}). 
 #' 
@@ -104,7 +104,7 @@ preceding_taxon_codes <- function(codes) {
   return(res)
 }
 
-#' Convert Taxon Code to Taxon
+#' Convert taxon code to taxon name
 #'
 #' @param code A character vector of Taxon Codes
 #'
@@ -125,20 +125,24 @@ taxon_code_to_taxon <- function(code) {
   # load local copy of taxon code lookup table
   load(system.file("data/ST_higher_taxa_codes_12th.rda", package = "SoilTaxonomy")[1])
   
-  # return matches
-  idx <- match(code, ST_higher_taxa_codes_12th$code)
-  res <- vector("character", length(code))
-  res[order(idx, na.last = NA)] <- ST_higher_taxa_codes_12th[which(ST_higher_taxa_codes_12th$code%in% code), 'taxon']
-  res[res == ""] <- NA
-  names(res) <- as.character(code)
-  return(res)
+  # LEFT JOIN on code (CASE SENSITIVE)
+  res <- merge(data.frame(code = code), ST_higher_taxa_codes_12th, 
+               by = "code", all.x = "TRUE", incomparables = NA, sort = FALSE)
+  
+  # re-arrange if NA-containing input
+  taxon <- res$taxon[match(code, res$code)]
+  
+  # add input as names
+  names(taxon) <- as.character(code)
+  
+  return(taxon)
 }
 
-#' Convert Taxon to Taxon Code
+#' Convert taxon name to taxon code
 #'
-#' @param taxon A character vector of Taxon Names -- case insensitive
+#' @param taxon A character vector of taxon names, case insensitive
 #'
-#' @return A character vector of matching Taxon Codes
+#' @return A character vector of matching taxon codes
 #' 
 #' @export
 #' 
@@ -156,16 +160,30 @@ taxon_to_taxon_code <- function(taxon) {
   # load local copy of taxon code lookup table
   load(system.file("data/ST_higher_taxa_codes_12th.rda", package = "SoilTaxonomy")[1])
   
+  # assume "family" has a comma separated list (words separated by commas)
+  #   followed by subgroup (2 or more words without commas)
+  if (any(grepl(",", taxon))) {
+    taxon <- gsub(".*, \\b[A-Za-z]+\\b (\\b[^,]*)$", "\\1", taxon)
+  }
+  
   # return matches
-  idx <- match(tolower(taxon), tolower(ST_higher_taxa_codes_12th$taxon))
-  res <- vector("character", length(taxon))
-  res[order(idx, na.last = NA)] <- ST_higher_taxa_codes_12th[which(tolower(ST_higher_taxa_codes_12th$taxon) %in% tolower(taxon)), 'code']
-  res[res == ""] <- NA
-  names(res) <- as.character(taxon)
-  return(res)
+  ST_higher_taxa_codes_12th$taxonlow <- tolower(ST_higher_taxa_codes_12th$taxon)
+  
+  # LEFT JOIN on lowercase taxon name
+  res <- merge(data.frame(taxonlow = tolower(taxon), row.names = NULL),
+               ST_higher_taxa_codes_12th, 
+               by = "taxonlow", all.x = "TRUE", incomparables = NA, sort = FALSE)
+  
+  # re-arrange if NA-containing input
+  code <- res$code[match(tolower(taxon), res$taxonlow)]
+  
+  # add input as names
+  names(code) <- as.character(taxon)
+  
+  return(code)
 }
 
-#' Determine Relative Position of Taxon within Existing Keys 
+#' Determine relative position of taxon within Keys to Soil Taxonomy (Order to Subgroup) 
 #'
 #' @description The relative position of a taxon is `[number of preceding Key steps] + 1`, or `NA` if it does not exist in the lookup table.
 #' 
