@@ -144,7 +144,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="parse_family" class="section level2">
 <h2><code>parse_family</code></h2>
 <p>The function <code>parse_family</code> provides a way to separate lower taxonomic levels (“family-level classes”) from the higher taxonomic levels (Order, Suborder, Great Group, and Subgroup) in a soil taxon name.</p>
-<p>The user provides a vector of family names, and the result is a <code>data.frame</code> containing: - <code>family</code> (input) - <code>subgroup</code> (taxonomic subgroup) - <code>subgroup_code</code> (four or five letter code for subgroup) - <code>class_string</code> (comma-separated family-level class string in taxon name) - <code>classes_split</code> (list column containing <code>class_string</code>; split using <code>&quot;,&quot;</code> as delimiter)</p>
+<p>The user provides a vector of family names, and the result is a <code>data.frame</code> containing:</p>
+<ul>
+<li><code>family</code> (input)</li>
+<li><code>subgroup</code> (taxonomic subgroup)</li>
+<li><code>subgroup_code</code> (four or five letter code for subgroup)</li>
+<li><code>class_string</code> (comma-separated family-level class string in taxon name)</li>
+<li><code>classes_split</code> (list column containing <code>class_string</code>; split using <code>&quot;,&quot;</code> as delimiter)</li>
+</ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_family</span>(<span class="st">&quot;fine-loamy, mixed, semiactive, mesic ultic haploxeralfs&quot;</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                                    family           subgroup</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 fine-loamy, mixed, semiactive, mesic ultic haploxeralfs ultic haploxeralfs</span></span>
