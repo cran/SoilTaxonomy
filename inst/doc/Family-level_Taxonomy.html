@@ -38,6 +38,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -194,6 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4         </span></span>
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5         </span></span>
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6</span></span></code></pre></div>
+<p>Here we determine the family-level classes for a single taxonomic family and match them to the class descriptions stored in <code>ST_family_classes</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>afamily_classes <span class="ot">&lt;-</span> <span class="fu">parse_family</span>(<span class="st">&quot;fine-loamy, mixed, semiactive, mesic ultic haploxeralfs&quot;</span>)<span class="sc">$</span>classes_split[[<span class="dv">1</span>]]</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>class_descriptions <span class="ot">&lt;-</span> <span class="fu">subset</span>(ST_family_classes, classname <span class="sc">%in%</span> afamily_classes)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>class_descriptions[<span class="fu">match</span>(afamily_classes, class_descriptions<span class="sc">$</span>classname),]</span>
