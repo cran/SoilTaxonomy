@@ -2,29 +2,32 @@
 % Please edit documentation in R/diagnostic-features.R
 \name{get_ST_features}
 \alias{get_ST_features}
-\title{Get diagnostic horizons, characteristics and features}
+\title{Get soil diagnostic horizons, characteristics and features}
 \usage{
 get_ST_features(
   group = NULL,
   chapter = NULL,
   name = NULL,
   page = NULL,
-  multiline_sep = "\\\\n"
+  multiline_sep = "\\n",
+  multiline_col = "criteria"
 )
 }
 \arguments{
-\item{group}{optional filtering vector; one of: "Surface", "Subsurface", "Mineral", "Organic", "Mineral or Organic"}
+\item{group}{optional filtering vector; one of: \code{"Surface"}, \code{"Subsurface"}, \code{"Mineral"}, \code{"Organic"}, \code{"Mineral or Organic"}}
 
-\item{chapter}{optional filtering vector; only chapter \code{3} currently}
+\item{chapter}{optional filtering vector for chapter number}
 
 \item{name}{optional filtering vector; these are the "names" of features used in headers}
 
 \item{page}{optional filtering vector; page number (12th Edition Keys to Soil Taxonomy)}
 
-\item{multiline_sep}{default \code{"\\\\n"} returns \code{criteria} column as a character vector concatenated with \code{"\\\\n"}. Use \code{NULL} for list}
+\item{multiline_sep}{default \code{"\\n"} returns \code{multiline_col} column as a character vector concatenated with \code{"\\n"}. Use \code{NULL} for list}
+
+\item{multiline_col}{character. vector of "multi-line" column names to concatenate. Default: \code{"criteria"}; use \code{NULL} for no concatenation.}
 }
 \value{
-a data.frame
+a subset of \code{ST_features} \emph{data.frame}
 }
 \description{
 All parameters to this function are optional (default \code{NULL}). If specified, they are used as filters.
@@ -48,5 +51,5 @@ str(get_ST_features(name = "Mollic Epipedon")$criteria)
 
 }
 \seealso{
-ST_features
+\code{ST_features} \code{ST_family_classes} \code{get_ST_family_classes()}
 }

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Family-level Taxonomic Classes</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Family-level Taxonomic Classes</h1>
+
+
+
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SoilTaxonomy)</span></code></pre></div>
+<div id="parse_family" class="section level2">
+<h2><code>parse_family()</code></h2>
+<p>The function <code>parse_family()</code> provides a way to separate
+lower taxonomic levels (“family-level classes”) from the higher
+taxonomic levels (Order, Suborder, Great Group, and Subgroup) in a soil
+taxon name.</p>
+<p>The user provides a vector of family names, and the result is a
+<code>data.frame</code> containing:</p>
+<ul>
+<li><code>family</code> (input)</li>
+<li><code>subgroup</code> (taxonomic subgroup)</li>
+<li><code>subgroup_code</code> (four or five letter code for
+subgroup)</li>
+<li><code>class_string</code> (comma-separated family-level class string
+in taxon name)</li>
+<li><code>classes_split</code> (list column containing
+<code>class_string</code>; split using <code>&quot;,&quot;</code> as
+delimiter)</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parse_family</span>(<span class="st">&quot;fine-loamy, mixed, semiactive, mesic ultic haploxeralfs&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                                    family           subgroup</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 fine-loamy, mixed, semiactive, mesic ultic haploxeralfs ultic haploxeralfs</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   subgroup_code                         class_string classes_split taxpartsize</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1          JDGR fine-loamy, mixed, semiactive, mesic  fine-loa....  fine-loamy</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   taxpartsizemod taxminalogy taxceactcl taxreaction taxtempcl taxfamhahatmatcl</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1             NA       mixed semiactive          NA     mesic               NA</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   taxfamother          taxsubgrp  taxgrtgroup taxsuborder taxorder</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1        &lt;NA&gt; Ultic Haploxeralfs Haploxeralfs     Xeralfs Alfisols</span></span></code></pre></div>
+</div>
+<div id="st_family_classes" class="section level2">
+<h2><code>ST_family_classes</code></h2>
+<p>The <code>ST_family_classes</code> data set provides information on
+the lower taxonomic class names and the Keys used to determine what, if
+any, class to use for a particular soil.</p>
+<p>This data set is a <code>data.frame</code> with the following
+columns:</p>
+<ul>
+<li><code>classname</code> (class name used in Soil Taxonomy family
+name)</li>
+<li><code>group</code> (simplified grouping of related
+classes/keys/criteria)</li>
+<li><code>name</code> (name of relevant section from Keys to Soil
+Taxonomy)</li>
+<li><code>chapter</code> (chapter number from Keys to Soil
+Taxonomy)</li>
+<li><code>page</code> ([first] page number from Keys to Soil
+Taxonomy)</li>
+<li><code>description</code> (narrative description of section; may not
+be present)</li>
+<li><code>criteria</code> (criteria listed under “Required
+Characteristics”; may not be present)</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;ST_family_classes&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ST_family_classes)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   DomainID          classname          group               name chapter page</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1      126             glassy Mineral Family Mineralogy Classes      17  325</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2      126            allitic Mineral Family Mineralogy Classes      17  325</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3      126           amorphic Mineral Family Mineralogy Classes      17  325</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4      126        glauconitic Mineral Family Mineralogy Classes      17  325</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5      126             gypsic Mineral Family Mineralogy Classes      17  325</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6      126 diatomaceous earth Mineral Family Mineralogy Classes      17  325</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                                                                                                                                                                                                                                                                                                                                   description</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 The mineralogy of soils is known to be useful in making predictions about soil behavior and responses to management. Some mineralogy classes occur or are important only in certain taxa or particle-size classes, and others are important in all particle-size classes. A mineralogy class is assigned to all mineral soils, except for Quartzipsamments.</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 The mineralogy of soils is known to be useful in making predictions about soil behavior and responses to management. Some mineralogy classes occur or are important only in certain taxa or particle-size classes, and others are important in all particle-size classes. A mineralogy class is assigned to all mineral soils, except for Quartzipsamments.</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 The mineralogy of soils is known to be useful in making predictions about soil behavior and responses to management. Some mineralogy classes occur or are important only in certain taxa or particle-size classes, and others are important in all particle-size classes. A mineralogy class is assigned to all mineral soils, except for Quartzipsamments.</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 The mineralogy of soils is known to be useful in making predictions about soil behavior and responses to management. Some mineralogy classes occur or are important only in certain taxa or particle-size classes, and others are important in all particle-size classes. A mineralogy class is assigned to all mineral soils, except for Quartzipsamments.</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 The mineralogy of soils is known to be useful in making predictions about soil behavior and responses to management. Some mineralogy classes occur or are important only in certain taxa or particle-size classes, and others are important in all particle-size classes. A mineralogy class is assigned to all mineral soils, except for Quartzipsamments.</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 The mineralogy of soils is known to be useful in making predictions about soil behavior and responses to management. Some mineralogy classes occur or are important only in certain taxa or particle-size classes, and others are important in all particle-size classes. A mineralogy class is assigned to all mineral soils, except for Quartzipsamments.</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   criteria</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1         </span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2         </span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3         </span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4         </span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5         </span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6</span></span></code></pre></div>
+<p>Here we determine the family-level classes for a single taxonomic
+family and match them to the class descriptions stored in
+<code>ST_family_classes</code> using
+<code>get_ST_family_classes()</code>. We set
+<code>parse_family(..., column_metadata=FALSE)</code> to <em>not</em>
+parse family components into corresponding NASIS domains (requires
+soilDB).</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="st">&quot;fine-loamy, mixed, semiactive, mesic ultic haploxeralfs&quot;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>family_classes <span class="ot">&lt;-</span> <span class="fu">parse_family</span>(f, <span class="at">column_metadata =</span> <span class="cn">FALSE</span>)<span class="sc">$</span>classes_split[[<span class="dv">1</span>]]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">get_ST_family_classes</span>(<span class="at">classname =</span> family_classes)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     DomainID  classname          group</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 98       127 fine-loamy Mineral Family</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 20       126      mixed Mineral Family</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 178      520 semiactive Mineral Family</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 159      185      mesic Mineral Family</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                                                 name chapter</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 98  Key to the Particle-Size and Substitute Classes of Mineral Soils      17</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 20                                                Mineralogy Classes      17</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 178                                 Cation-Exchange Activity Classes      17</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 159                                         Soil Temperature Classes      17</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     page</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 98   319</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 20   325</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 178  327</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 159  329</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   description</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 98  This key, like other keys in this taxonomy, is designed in such a way that the reader makes the correct classification by going through the key systematically, starting at the beginning and eliminating one by one all classes that include criteria that do not fit the soil or layer in question. The class or substitute name for each layer within the control section must be determined from the key. If any two layers meet the criteria for strongly contrasting particle-size classes (listed below), the soil is named for that strongly contrasting class. If more than one pair meets the criteria for strongly contrasting classes, the soil is also in an aniso class named for the pair of adjacent classes that contrast most strongly. If the soil has none of the strongly contrasting classes, the weighted average soil materials within the particle-size control section generally determine the class. Exceptions are soils that are not strongly contrasting and that have a substitute class name for one or more parts of the control section. In these soils the class or substitute name of the thickest (cumulative) part within the control section is used to determine the family name.</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 20                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                The mineralogy of soils is known to be useful in making predictions about soil behavior and responses to management. Some mineralogy classes occur or are important only in certain taxa or particle-size classes, and others are important in all particle-size classes. A mineralogy class is assigned to all mineral soils, except for Quartzipsamments.</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 178                                                                                                                                                       The cation-exchange activity classes help in making interpretations about the nutrient-holding capacity of soils and their suites of colloids. The cation-exchange capacity is determined by NH4 OAc at pH 7 on the fine-earth fraction. The CEC of the organic matter, sand, silt, and clay is included in the determination. The criteria for the classes use ratios of CEC to the percent, by weight, of silicate clay, calculated by weighted average in the control section. In the following classes &quot;clay&quot; excludes clay-size carbonates. Percent carbonate clay must be subtracted from percent total clay before calculating the CEC to clay ratio. If the ratio of percent water retained at 1500 kPa tension to the percentage of measured clay is 0.25 or less or 0.6 or more in half or more of the particle-size control section (or in a part of contrasting families), then the percentage of clay is estimated by the following formula: Clay % = 2.5(% water retained at 1500 kPa tension - % organic carbon). See appendix for more information.</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 159                                                                                                                                                                                                                                                          Soil temperature classes, as named and defined here, are used as part of the family name in both mineral and organic soils. Temperature class names are used as part of the family name unless the criteria for a higher taxon carry the same limitation. Thus, frigid is implied in all cryic suborders, great groups, and subgroups and would be redundant if used in the names of families within these classes. The Celsius (centigrade) scale is the standard. It is assumed that the temperature is that of a soil that is not being irrigated. Control Section for Soil Temperature The control section for soil temperature is either at a depth of 50 cm below the soil surface or at the upper boundary of a root-limiting layer, whichever is shallower. The soil temperature classes, defined in terms of the mean annual soil temperature and the difference between mean summer and mean winter temperatures, are determined by the following key.</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           criteria</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 98  A. Mineral soils that have, in the thickest part of the control section (if the control section is not in one of the strongly contrasting particle-size classes listed below), or in a part of the control section that qualifies as an element in one of the strongly contrasting particle-size classes listed below, or throughout the control section, a fine-earth component (including associated medium and finer pores) of less than 10 percent of the total volume and that meet one of the following sets of substitute class criteria:\n1. Have, in the whole soil, more than 60 percent (by weight) volcanic ash, cinders, lapilli, pumice, and pumicelike [see footnote] fragments and, in the fraction 2 mm or larger in diameter, two-thirds or more (by volume) pumice and/or pumicelike fragments.\nPumiceous or 2. Have, in the whole soil, more than 60 percent (by weight) volcanic ash, cinders, lapilli, pumice, and pumicelike fragments and, in the fraction 2 mm or larger in diameter, less than two-thirds (by volume) pumice and/or pumicelike fragments.\nCindery or 3. Other soils that have a fine-earth component of less than 10 percent (including associated medium and finer pores) of the total volume.\nFragmental or B. Other mineral soils that have a fine-earth component of 10 percent or more (including associated medium and finer pores) of the total volume and meet, in the thickest portion of the control section (if the control section is not in one of the strongly contrasting particle-size classes listed below), or in a portion of the control section that qualifies as a part in one of the strongly contrasting particle-size classes listed below, or throughout the control section, one of the following sets of substitute class criteria:\n1. They:\na. Have andic soil properties and have a water content at 1500 kPa tension of less than 30 percent on undried samples and less than 12 percent on dried samples; or\nb. Do not have andic soil properties, have 30 percent or more of the fine-earth fraction in the 0.02 to 2.0 mm fraction, and have a volcanic glass content (by grain count) of 30 percent or more in the 0.02 to 2.0 mm fraction; and\nc. Have one of the following; (1) A total of 35 percent or more (by volume) rock and pararock fragments, of which two-thirds or more (by volume) is pumice or pumicelike fragments.\nAshy-pumiceous or (2) 35 percent or more (by volume) rock fragments.\nAshy-skeletal or (3) Less than 35 percent (by volume) rock fragments.\nAshy or 2. They have a fine-earth fraction that has andic soil properties and that has a water content at 1500 kPa tension of less than 100 percent on undried samples; and\na. Have a total of 35 percent or more (by volume) rock and pararock fragments, of which two-thirds or more (by volume) is pumice or pumicelike fragments.\nMedial-pumiceous or b. Have 35 percent or more (by volume) rock fragments.\nMedial-skeletal or c. Have less than 35 percent (by volume) rock fragments.\nMedial or 3. They have a fine-earth fraction that has andic soil properties and that has a water content at 1500 kPa tension of 100 percent or more on undried samples; and\na. Have a total of 35 percent or more (by volume) rock and pararock fragments, of which two-thirds or more (by volume) is pumice or pumicelike fragments.\nHydrous-pumiceous or b. Have 35 percent or more (by volume) rock fragments.\nHydrous-skeletal or  [see footnote] Pumicelikevesicular pyroclastic materials other than pumice that have an apparent specific gravity (including vesicles) of less than 1.0 g/cm3 .\nc. Have less than 35 percent (by volume) rock fragments.\nHydrous or 4. They have, in the fraction less than 20 mm in diameter, 40 percent of more (by weight) gypsum and one of the following:\na. A total of 35 percent or more (by volume) rock fragments.\nGypseous-skeletal or b. Less than 35 percent (by volume) rock fragments and 50 percent or more (by weight) particles with diameters of 0.1 to 2.0 mm.\nCoarse-gypseous or c. Less than 35 percent (by volume) rock fragments.\nFine-gypseous or Note: In the following classes, &quot;clay&quot; excludes clay-size carbonates. Carbonates of clay size are treated as silt. If the ratio of percent water retained at 1500 kPa tension to the percentage of measured clay is 0.25 or less or 0.6 or more in half or more of the particle-size control section or part of the particle-size control section in strongly contrasting classes, then the percentage of clay is estimated by the following formula:\nClay % = 2.5(% water retained at 1500 kPa tension - % organic carbon). See appendix for more information.\nC. Other mineral soils that, in the thickest part of the control section (if part of the control section has a substitute for particle-size class and is not in one of the strongly contrasting particle-size classes listed below), or in a part of the control section that qualifies as an element in one of the strongly contrasting particle-size classes listed below, or throughout the control section, meet one of the following sets of particle-size class criteria:\n1. Have a total content of rock fragments, plus any artifacts 2 mm or larger in diameter which are both cohesive and persistent, of 35 percent or more (by volume) and a texture class of coarse sand, sand, fine sand, loamy coarse sand, loamy sand, or loamy fine sand in the fine-earth fraction.\nSandy-skeletal or 2. Have a total content of rock fragments, plus any artifacts 2 mm or larger in diameter which are both cohesive and persistent, of 35 percent or more (by volume) and less than 35 percent (by weight) clay.\nLoamy-skeletal or 3. Have a total content of rock fragments, plus any artifacts 2 mm or larger in diameter which are both cohesive and persistent, of 35 percent or more (by volume).\nClayey-skeletal or 4. Have a texture class of coarse sand, sand, fine sand, loamy coarse sand, loamy sand, or loamy fine sand in the fine-earth fraction.\nSandy or 5. Have a texture class of loamy very fine sand, very fine sand, or finer, including less than 35 percent (by weight) clay in the fine-earth fraction (excluding Vertisols), and are in a shallow family (defined below) or in a Lithic, Arenic, or Grossarenic subgroup, or the layer is a part in a strongly contrasting particle-size class (listed below).\nLoamy or 6. Have, in the fraction less than 75 mm in diameter, 15 percent or more (by weight) particles with diameters of 0.1 to 75 mm (fine sand or coarser, including gravel and artifacts 2 to 75 mm in diameter which are both cohesive and persistent) and, in the fine-earth fraction, less than 18 percent (by weight) clay.\nCoarse-loamy or 7. Have, in the fraction less than 75 mm in diameter, 15 percent or more (by weight) particles with diameters of 0.1 to 75 mm (fine sand or coarser, including gravel and artifacts 2 to 75 mm in diameter which are both cohesive and persistent) and, in the fine-earth fraction, 18 to less than 35 percent (by weight) clay (Vertisols are excluded).\nFine-loamy or 8. Have, in the fraction less than 75 mm in diameter, less than 15 percent (by weight) particles with diameters of 0.1 to 75 mm (fine sand or coarser, including gravel and artifacts 2 to 75 mm in diameter which are both cohesive and persistent) and, in the fine-earth fraction, less than 18 percent (by weight) clay.\nCoarse-silty or 9. Have, in the fraction less than 75 mm in diameter, less than 15 percent (by weight) particles with diameters of 0.1 to 75 mm (fine sand or coarser, including gravel and artifacts 2 to 75 mm in diameter which are both cohesive and persistent) and, in the fine-earth fraction, 18 to less than 35 percent (by weight) clay (Vertisols are excluded).\nFine-silty or 10. Have 35 percent or more (by weight) clay (more than 30 percent in Vertisols) and are in a shallow family (defined below) or in a Lithic, Arenic, or Grossarenic subgroup, or the layer is a part in a strongly contrasting particle-size class (listed below).\nClayey or 11. Have (by weighted average) less than 60 percent (by weight) clay in the fine-earth fraction.\nFine or 12. Have 60 percent or more (by weight) clay.\nVery-fine</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 20                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 178                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 159</span></span></code></pre></div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
