@@ -181,7 +181,7 @@ parse_family <- function(family, column_metadata = TRUE, flat = TRUE) {
       res6
     })
   out <- res5[allowed.names]
-  out <- type.convert(out[allowed.names], as.is = TRUE)
+  out <- utils::type.convert(out[allowed.names], as.is = TRUE)
 
   # TODO: generalize if needed
   if (!flat) {
