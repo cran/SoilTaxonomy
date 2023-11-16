@@ -1,6 +1,6 @@
-f87063abf1954b4cfd236d49d9d5c382 *DESCRIPTION
-9bc0eb22839bcc5a3219e2cdd0d229ed *NAMESPACE
-6afb7caa7bbb40dfa9ecded08fd7343d *NEWS.md
+e13db10f8a3e3d22a6077787c7d34597 *DESCRIPTION
+fda4f8d9975ee018ecbf1bd71ffb396b *NAMESPACE
+e4532deea7b17c9705d8487ad6762995 *NEWS.md
 bcd7cc3d13a276b23d1ac5fa5dc4801f *R/AAAAA.R
 fa24b6bb7eadab13868b373fdb0bd9b3 *R/SoilTaxonomy-package.R
 e2835d0c7c818ed0c8fb1e1ce01758ec *R/SoilTaxonomyLevels.R
@@ -9,7 +9,7 @@ ae7816a2fa64e3ae5a72006d92f20b5e *R/data-filters.R
 7d8d5347c8fba50bdcc841ee850c01fd *R/diagnostic-features.R
 2cf3c90be6344e8bc5c8a033daf6d67a *R/explainST.R
 a7ab480f1d560c56e600bfb329a58071 *R/extractSMR.R
-844b443aca21f44bd87cf629929c1e78 *R/family-classes.R
+e63abf44aec3b488727a0c6d742958bb *R/family-classes.R
 73f8b27839aae47658b1b649cea037e6 *R/formative-elements.R
 f338bcad1e01ad3ad800634e62cefd33 *R/getChildTaxa.R
 4e8c32a40c3187f813b7ffe76e125ec6 *R/getLastChildTaxon.R
@@ -20,9 +20,9 @@ b33ea0ff348f3f64301acbcabebfaff6 *R/getTaxonAtLevel.R
 5d0eb3f8eb5847cac455b69717429da1 *R/higherTaxaLevels.R
 c32006a662309c1a74d1625b67827509 *R/isValidST.R
 f21d87e39d3ac7c4b09889697977a1a0 *R/newick.R
-ae0e20d7bfc76d7cc1787106eb3ada00 *R/taxonTree.R
-d39c2049c133567b48ed7542ce75733a *README.md
-a6b495c7cb8b8d7dca53d69719c79230 *build/vignette.rds
+d23c3c28bce6177fa02d0cb448eae9a7 *R/taxonTree.R
+ccf815b2ba1ea9f359e3b347db3849f3 *README.md
+6d5aead92e509ace9d7e5751b973cf3a *build/vignette.rds
 4e39738de709ae7692f7797499a0618a *data/ST.rda
 76c20375706ec20f6c88b238d3682053 *data/ST_family_classes.rda
 c9b33b2cf8402534112abbf6dfab3d75 *data/ST_features.rda
@@ -34,13 +34,13 @@ f00089c4f4798fc27edb1e3c611a4b97 *inst/CITATION
 869fe98c8636cf57814c3616ffb1fe77 *inst/WORDLIST
 573706c2af63f95bd099a1be82214a1a *inst/doc/diagnostics.R
 0cf5b9e4ee53b094ba8bbad5e90baeb2 *inst/doc/diagnostics.Rmd
-c72a7b6a1323d97e8d1a80af12d0857a *inst/doc/diagnostics.html
+1f101212620efa984ced30d19be36d7f *inst/doc/diagnostics.html
 b7bc79ffeeecaaf3d383ea20f6f47fc2 *inst/doc/family-level_taxonomy.R
 0a7a061b4aee838b1dce696667dd7051 *inst/doc/family-level_taxonomy.Rmd
-88c3441ac9a6c7a7907506c9bc20bc02 *inst/doc/family-level_taxonomy.html
+c3b428fac9d87b38bf43405f86ca44f2 *inst/doc/family-level_taxonomy.html
 fa7353992bc4df9751754979fa16952d *inst/doc/taxon-letter-codes.R
 18a6638c3a84efc653476cc211ecf24b *inst/doc/taxon-letter-codes.Rmd
-57e3e42b3755f4f83b0ef5061c80a64c *inst/doc/taxon-letter-codes.html
+a7db331c2e3d69b1643426ac96798ebe *inst/doc/taxon-letter-codes.html
 21ea607bf6dc98b37c6a773e20f7aafe *man/FormativeElements.Rd
 749f03824d2fbc7eb9fd51ffa6ecd03a *man/ST.Rd
 6f67879a0587d5d6f66b93fa9f4f5762 *man/ST_family_classes.Rd
@@ -68,7 +68,7 @@ c1100c1ea49b8b1dc414fc4b2d4e12c3 *man/hierarchy.Rd
 6c6b26d6ee1b3d84d19a3a10a0d37db3 *man/parse_family.Rd
 077dc5c1ef26c7a7898a9c3e2deb0f07 *man/preceding_taxon_codes.Rd
 433ea65fa7e589f17d43c3e758874829 *man/relative_taxon_code_position.Rd
-ffb0ba8a9074f0138adb21ba2dc1f6e8 *man/taxonTree.Rd
+ae57d2c864e59b75f05520ca453d76a0 *man/taxonTree.Rd
 473734db5145976f1af57926359c770f *man/taxon_code_to_taxon.Rd
 af41e090de3fe4f2162c4e1f61a3e7a4 *man/taxon_to_level.Rd
 5d947a3e97472e701858e76efcc62874 *man/taxon_to_taxon_code.Rd
@@ -86,7 +86,7 @@ e1fc3da4a934f2aa11536608c7d0ae11 *tests/testthat/test-hierarchy.R
 38683b64fb6e1e4222547952e4c7e5e0 *tests/testthat/test-higherTaxaCodes.R
 e70787bb5641a5ff2161b123a7a341ac *tests/testthat/test-higherTaxaLevels.R
 b910a7576368bab18957ebcc39d24a7b *tests/testthat/test-newick.R
-23829d24a07f007394907601ac602bc6 *tests/testthat/test-parseFamily.R
+fba2282ceea93b74f33faf8d934853c8 *tests/testthat/test-parseFamily.R
 0d17ce2cec63c0e763566454beed0d9e *tests/testthat/test-taxonTree.R
 0cf5b9e4ee53b094ba8bbad5e90baeb2 *vignettes/diagnostics.Rmd
 0a7a061b4aee838b1dce696667dd7051 *vignettes/family-level_taxonomy.Rmd
