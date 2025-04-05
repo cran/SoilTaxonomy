@@ -49,7 +49,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -60,7 +60,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -354,7 +354,7 @@ the hierarchy. Other functions determine <code>level</code> by
 comparison against known taxa or codes. This vignette covers the basics
 of how taxon letter code conversion to and from taxonomic names is
 implemented.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SoilTaxonomy)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(SoilTaxonomy)</span></code></pre></div>
 <div id="taxon_to_taxon_code" class="section level2">
 <h2><code>taxon_to_taxon_code()</code></h2>
 <p><code>taxon_to_taxon_code()</code> converts a taxon name (Soil Order,
@@ -362,29 +362,29 @@ Suborder, Great Group, or Subgroup) to a letter code that corresponds to
 the logical position of that taxon in the Keys to Soil Taxonomy.</p>
 <p><em>Gelisols</em> are the first Soil Order to key out and are given
 letter code “A”</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">taxon_to_taxon_code</span>(<span class="st">&quot;gelisols&quot;</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; gelisols </span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      &quot;A&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">taxon_to_taxon_code</span>(<span class="st">&quot;gelisols&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co">#&gt; gelisols </span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt;      &quot;A&quot;</span></span></code></pre></div>
 <p>The number of letters in a taxon code corresponds to the
 <code>level</code> of that taxon. <em>Histels</em> are the first
 Suborder to key out in the <em>Gelisols</em> key (<strong>A</strong>),
 so they are given two letter code “AA”</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">taxon_to_taxon_code</span>(<span class="st">&quot;histels&quot;</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; histels </span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &quot;AA&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">taxon_to_taxon_code</span>(<span class="st">&quot;histels&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt; histels </span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt;    &quot;AA&quot;</span></span></code></pre></div>
 <p>For each “step” in each key, the letter codes are “incremented” by
 one.</p>
 <p><em>Glacistels</em> are the <u>second</u> Great Group in the
 <em>Histels</em> key (<strong>AA</strong>), so they have the three
 letter code “AAB”.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">taxon_to_taxon_code</span>(<span class="st">&quot;glacistels&quot;</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; glacistels </span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      &quot;AAB&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">taxon_to_taxon_code</span>(<span class="st">&quot;glacistels&quot;</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt; glacistels </span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt;      &quot;AAB&quot;</span></span></code></pre></div>
 <p><em>Typic</em> subgroups, by convention, are the last subgroup to key
 out in a Great Group.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">taxon_to_taxon_code</span>(<span class="st">&quot;typic glacistels&quot;</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; typic glacistels </span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           &quot;AABC&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">taxon_to_taxon_code</span>(<span class="st">&quot;typic glacistels&quot;</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co">#&gt; typic glacistels </span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co">#&gt;           &quot;AABC&quot;</span></span></code></pre></div>
 <p>Since <em>Typic Glacistels</em> have code <code>&quot;AABC&quot;</code> we can
 infer that there are three taxa in the <em>Glacistels</em> key with
 codes <code>&quot;AABA&quot;</code>, <code>&quot;AABB&quot;</code> and
@@ -395,9 +395,9 @@ letter code is used to “extend” the ability to increment the code beyond
 26.</p>
 <p>An example of where this is needed is in the <em>Haploxerolls</em>
 key where the <em>Typic</em> subgroup has code <code>&quot;IFFZh&quot;</code>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">taxon_to_taxon_code</span>(<span class="st">&quot;typic haploxerolls&quot;</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; typic haploxerolls </span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            &quot;IFFZh&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">taxon_to_taxon_code</span>(<span class="st">&quot;typic haploxerolls&quot;</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#&gt; typic haploxerolls </span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#&gt;            &quot;IFFZh&quot;</span></span></code></pre></div>
 <p>From this code we infer that the <em>Haploxerolls</em> key has <span class="math inline">\(26+8=34\)</span> subgroups corresponding to the
 range from <code>IFFA</code> to <code>IFFZ</code> <em>plus</em>
 <code>IFFZa</code> to <code>IFFZh</code>.</p>
@@ -409,17 +409,17 @@ range from <code>IFFA</code> to <code>IFFZ</code> <em>plus</em>
 <p>Above we determined the <em>Glacistels</em> Key contains three taxa
 with codes <code>&quot;AABA&quot;</code>, <code>&quot;AABB&quot;</code> and
 <code>&quot;AABC&quot;</code>. Let’s convert those codes to taxon names.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">taxon_code_to_taxon</span>(<span class="fu">c</span>(<span class="st">&quot;AABA&quot;</span>, <span class="st">&quot;AABB&quot;</span>, <span class="st">&quot;AABC&quot;</span>))</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                AABA                AABB                AABC </span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  &quot;Hemic Glacistels&quot; &quot;Sapric Glacistels&quot;  &quot;Typic Glacistels&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">taxon_code_to_taxon</span>(<span class="fu">c</span>(<span class="st">&quot;AABA&quot;</span>, <span class="st">&quot;AABB&quot;</span>, <span class="st">&quot;AABC&quot;</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="co">#&gt;                AABA                AABB                AABC </span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="co">#&gt;  &quot;Hemic Glacistels&quot; &quot;Sapric Glacistels&quot;  &quot;Typic Glacistels&quot;</span></span></code></pre></div>
 </div>
 <div id="taxon_to_level" class="section level2">
 <h2><code>taxon_to_level()</code></h2>
 <p>We can infer from the length of the four-letter codes that all of the
 above are subgroup-level taxa. <code>taxon_to_level()</code> confirms
 this.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">taxon_to_level</span>(<span class="fu">c</span>(<span class="st">&quot;Hemic Glacistels&quot;</span>,<span class="st">&quot;Sapric Glacistels&quot;</span>,<span class="st">&quot;Typic Glacistels&quot;</span>))</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;subgroup&quot; &quot;subgroup&quot; &quot;subgroup&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">taxon_to_level</span>(<span class="fu">c</span>(<span class="st">&quot;Hemic Glacistels&quot;</span>,<span class="st">&quot;Sapric Glacistels&quot;</span>,<span class="st">&quot;Typic Glacistels&quot;</span>))</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;subgroup&quot; &quot;subgroup&quot; &quot;subgroup&quot;</span></span></code></pre></div>
 <p><code>taxon_to_level()</code> can also identify a fifth (lower-level)
 <em>family</em> tier (<code>level=&quot;family&quot;</code>). Soil family
 differentiae are not handled in the Order to Subgroup keys. Family names
@@ -432,8 +432,8 @@ includes a particle-size class (<code>&quot;fine&quot;</code>), a mineralogy cla
 (<code>&quot;mixed&quot;</code>), a cation exchange capacity (CEC) activity class
 (<code>&quot;semiactive&quot;</code>) and a temperature class
 (<code>&quot;mesic&quot;</code>)</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">taxon_to_level</span>(<span class="st">&quot;Fine, mixed, semiactive, mesic Ultic Haploxeralfs&quot;</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;family&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">taxon_to_level</span>(<span class="st">&quot;Fine, mixed, semiactive, mesic Ultic Haploxeralfs&quot;</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;family&quot;</span></span></code></pre></div>
 </div>
 <div id="gettaxonatlevel" class="section level2">
 <h2><code>getTaxonAtLevel()</code></h2>
@@ -443,70 +443,70 @@ includes a particle-size class (<code>&quot;fine&quot;</code>), a mineralogy cla
 the taxonomy at a higher (less detailed) level. You can determine what
 to remove (family and subgroup-level modifiers) to get the Great Group
 using <code>getTaxonAtLevel(level=&quot;greatgroup&quot;)</code></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getTaxonAtLevel</span>(<span class="st">&quot;Fine, mixed, semiactive, mesic Ultic Haploxeralfs&quot;</span>, <span class="at">level =</span> <span class="st">&quot;greatgroup&quot;</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Fine, mixed, semiactive, mesic Ultic Haploxeralfs </span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                    &quot;haploxeralfs&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">getTaxonAtLevel</span>(<span class="st">&quot;Fine, mixed, semiactive, mesic Ultic Haploxeralfs&quot;</span>, <span class="at">level =</span> <span class="st">&quot;greatgroup&quot;</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="co">#&gt; Fine, mixed, semiactive, mesic Ultic Haploxeralfs </span></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="co">#&gt;                                    &quot;haploxeralfs&quot;</span></span></code></pre></div>
 <p>If you request a more-detailed taxonomic level than what you start
 with, you will get an <code>NA</code> result.</p>
 <p>For example, we request the subgroup from suborder
 (<code>&quot;Folists&quot;</code>) level taxon name which is undefined.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getTaxonAtLevel</span>(<span class="st">&quot;Folists&quot;</span>, <span class="at">level =</span> <span class="st">&quot;subgroup&quot;</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Folists </span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">getTaxonAtLevel</span>(<span class="st">&quot;Folists&quot;</span>, <span class="at">level =</span> <span class="st">&quot;subgroup&quot;</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="co">#&gt; Folists </span></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="co">#&gt;      NA</span></span></code></pre></div>
 </div>
 <div id="getparenttaxa" class="section level2">
 <h2><code>getParentTaxa()</code></h2>
 <p>Another wrapper method around taxon letter code functionality is
 <code>getParentTaxa()</code>. This function will enumerate the tiers
 above a particular taxon.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getParentTaxa</span>(<span class="st">&quot;Fine, mixed, semiactive, mesic Ultic Haploxeralfs&quot;</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $`Fine, mixed, semiactive, mesic Ultic Haploxeralfs`</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                    J                   JD                  JDG </span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           &quot;Alfisols&quot;            &quot;Xeralfs&quot;       &quot;Haploxeralfs&quot; </span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                 JDGR </span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &quot;Ultic Haploxeralfs&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">getParentTaxa</span>(<span class="st">&quot;Fine, mixed, semiactive, mesic Ultic Haploxeralfs&quot;</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="co">#&gt; $`Fine, mixed, semiactive, mesic Ultic Haploxeralfs`</span></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="co">#&gt;                    J                   JD                  JDG </span></span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="co">#&gt;           &quot;Alfisols&quot;            &quot;Xeralfs&quot;       &quot;Haploxeralfs&quot; </span></span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a><span class="co">#&gt;                 JDGR </span></span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a><span class="co">#&gt; &quot;Ultic Haploxeralfs&quot;</span></span></code></pre></div>
 <p>You can alternately specify <code>code</code> argument instead of
 <code>taxon</code>.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getParentTaxa</span>(<span class="at">code =</span> <span class="st">&quot;BAB&quot;</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $BAB</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           B          BA </span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &quot;Histosols&quot;   &quot;Folists&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">getParentTaxa</span>(<span class="at">code =</span> <span class="st">&quot;BAB&quot;</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="co">#&gt; $BAB</span></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="co">#&gt;           B          BA </span></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="co">#&gt; &quot;Histosols&quot;   &quot;Folists&quot;</span></span></code></pre></div>
 <p>And converting the internally used taxon codes to taxon names can be
 disabled with <code>convert = FALSE</code>. This may be useful for
 certain applications.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getParentTaxa</span>(<span class="at">code =</span> <span class="fu">c</span>(<span class="st">&quot;BAA&quot;</span>,<span class="st">&quot;BAB&quot;</span>), <span class="at">convert =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $BAA</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;B&quot;  &quot;BA&quot;</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $BAB</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;B&quot;  &quot;BA&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">getParentTaxa</span>(<span class="at">code =</span> <span class="fu">c</span>(<span class="st">&quot;BAA&quot;</span>,<span class="st">&quot;BAB&quot;</span>), <span class="at">convert =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="co">#&gt; $BAA</span></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="co">#&gt; [1] &quot;B&quot;  &quot;BA&quot;</span></span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a><span class="co">#&gt; $BAB</span></span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;B&quot;  &quot;BA&quot;</span></span></code></pre></div>
 </div>
 <div id="decompose_taxon_code" class="section level2">
 <h2><code>decompose_taxon_code()</code></h2>
 <p>For more general cases <code>decompose_taxon_code()</code> might be
 useful. This is a function used by many of the above methods that
 returns a nested list result containing the letter code hierarchy.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">decompose_taxon_code</span>(<span class="fu">c</span>(<span class="st">&quot;BAA&quot;</span>,<span class="st">&quot;BAB&quot;</span>))</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $BAA</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $BAA[[1]]</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;B&quot;</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $BAA[[2]]</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;BA&quot;</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $BAA[[3]]</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;BAA&quot;</span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $BAB</span></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $BAB[[1]]</span></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;B&quot;</span></span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $BAB[[2]]</span></span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;BA&quot;</span></span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $BAB[[3]]</span></span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;BAB&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">decompose_taxon_code</span>(<span class="fu">c</span>(<span class="st">&quot;BAA&quot;</span>,<span class="st">&quot;BAB&quot;</span>))</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="co">#&gt; $BAA</span></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="co">#&gt; $BAA[[1]]</span></span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a><span class="co">#&gt; [1] &quot;B&quot;</span></span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a><span class="co">#&gt; $BAA[[2]]</span></span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;BA&quot;</span></span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a><span class="co">#&gt; $BAA[[3]]</span></span>
+<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a><span class="co">#&gt; [1] &quot;BAA&quot;</span></span>
+<span id="cb15-11"><a href="#cb15-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-12"><a href="#cb15-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-13"><a href="#cb15-13" tabindex="-1"></a><span class="co">#&gt; $BAB</span></span>
+<span id="cb15-14"><a href="#cb15-14" tabindex="-1"></a><span class="co">#&gt; $BAB[[1]]</span></span>
+<span id="cb15-15"><a href="#cb15-15" tabindex="-1"></a><span class="co">#&gt; [1] &quot;B&quot;</span></span>
+<span id="cb15-16"><a href="#cb15-16" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-17"><a href="#cb15-17" tabindex="-1"></a><span class="co">#&gt; $BAB[[2]]</span></span>
+<span id="cb15-18"><a href="#cb15-18" tabindex="-1"></a><span class="co">#&gt; [1] &quot;BA&quot;</span></span>
+<span id="cb15-19"><a href="#cb15-19" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-20"><a href="#cb15-20" tabindex="-1"></a><span class="co">#&gt; $BAB[[3]]</span></span>
+<span id="cb15-21"><a href="#cb15-21" tabindex="-1"></a><span class="co">#&gt; [1] &quot;BAB&quot;</span></span></code></pre></div>
 </div>
 <div id="preceding_taxon_codes-and-relative_taxon_code_position" class="section level2">
 <h2><code>preceding_taxon_codes()</code> and
@@ -520,18 +520,18 @@ containing all preceding codes.</p>
 <p>For example, the <code>AA</code> suborder key precedes
 <code>AB</code>. And within the <code>AB</code> key <code>ABA</code> and
 <code>ABB</code> precede <code>ABC</code>.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">preceding_taxon_codes</span>(<span class="st">&quot;ABC&quot;</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ABC</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;AA&quot;  &quot;ABA&quot; &quot;ABB&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="fu">preceding_taxon_codes</span>(<span class="st">&quot;ABC&quot;</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="co">#&gt; $ABC</span></span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a><span class="co">#&gt; [1] &quot;AA&quot;  &quot;ABA&quot; &quot;ABB&quot;</span></span></code></pre></div>
 <p><code>relative_taxon_code_position()</code> counts how many taxa key
 out before a taxon plus <span class="math inline">\(1\)</span> (to get
 <em>the</em> taxon position).</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">relative_taxon_code_position</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;AA&quot;</span>,<span class="st">&quot;AAA&quot;</span>,<span class="st">&quot;AAAA&quot;</span>,</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                               <span class="st">&quot;AB&quot;</span>,<span class="st">&quot;AAB&quot;</span>,<span class="st">&quot;ABA&quot;</span>,<span class="st">&quot;ABC&quot;</span>,</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                               <span class="st">&quot;B&quot;</span>,<span class="st">&quot;BA&quot;</span>,<span class="st">&quot;BAA&quot;</span>,<span class="st">&quot;BAB&quot;</span>,</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                               <span class="st">&quot;BBA&quot;</span>,<span class="st">&quot;BBB&quot;</span>,<span class="st">&quot;BBC&quot;</span>))</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    A   AA  AAA AAAA   AB  AAB  ABA  ABC    B   BA  BAA  BAB  BBA  BBB  BBC </span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    1    1    1    1    2    2    2    4    2    2    2    3    3    4    5</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">relative_taxon_code_position</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;AA&quot;</span>,<span class="st">&quot;AAA&quot;</span>,<span class="st">&quot;AAAA&quot;</span>,</span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>                               <span class="st">&quot;AB&quot;</span>,<span class="st">&quot;AAB&quot;</span>,<span class="st">&quot;ABA&quot;</span>,<span class="st">&quot;ABC&quot;</span>,</span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a>                               <span class="st">&quot;B&quot;</span>,<span class="st">&quot;BA&quot;</span>,<span class="st">&quot;BAA&quot;</span>,<span class="st">&quot;BAB&quot;</span>,</span>
+<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a>                               <span class="st">&quot;BBA&quot;</span>,<span class="st">&quot;BBB&quot;</span>,<span class="st">&quot;BBC&quot;</span>))</span>
+<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a><span class="co">#&gt;    A   AA  AAA AAAA   AB  AAB  ABA  ABC    B   BA  BAA  BAB  BBA  BBB  BBC </span></span>
+<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a><span class="co">#&gt;    1    1    1    1    2    2    2    4    2    2    2    3    3    4    5</span></span></code></pre></div>
 </div>
 
 

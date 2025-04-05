@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   eval = SoilTaxonomy:::.soilDB_metadata_available(min_version = "2.0.0"),
   collapse = TRUE,

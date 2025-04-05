@@ -2,8 +2,8 @@
 % Please edit documentation in R/SoilTaxonomy-package.R
 \docType{package}
 \name{SoilTaxonomy-package}
+\alias{SoilTaxonomy}
 \alias{SoilTaxonomy-package}
-\alias{_PACKAGE}
 \alias{SoilTaxonomy.env}
 \title{SoilTaxonomy: A System of Soil Classification for Making and Interpreting Soil Surveys}
 \description{
@@ -14,6 +14,7 @@ Useful links:
 \itemize{
   \item \url{https://github.com/ncss-tech/SoilTaxonomy}
   \item \url{https://ncss-tech.github.io/SoilTaxonomy/}
+  \item \url{http://ncss-tech.github.io/SoilTaxonomy/}
   \item Report bugs at \url{https://github.com/ncss-tech/SoilTaxonomy/issues}
 }
 
